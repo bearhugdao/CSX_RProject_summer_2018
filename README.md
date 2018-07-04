@@ -2,11 +2,17 @@
 ---
 
 title: "TFID_Visualization"
+
 author: "Kuan-Hao, Chao"
+
 date: "2018/4/10"
+
 output:
-  html_document: default
-  pdf_document: default
+
+ html_document: default
+
+ pdf_document: default
+
 <<<<<<< HEAD
 
 
