@@ -28,6 +28,6 @@ output:
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
-#### 普通大
-##### 非常大
-###### 超級大
+### 普通大
+## 非常大
+# 超級大
