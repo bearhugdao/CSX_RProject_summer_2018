@@ -34,25 +34,30 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 
 ```{r}
+library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length, y=Sepal.Width)) +
   geom_point()
 ```
 
 ```{r}
+library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length)) +
   geom_bar(fill = "lightblue", colour = "black")
 ```
 
 ```{r}
+library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length)) +
   geom_histogram()
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
+library(ggplot2)
 
 ```
 
 ```{r}
+library(ggplot2)
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_boxplot()
 ```
