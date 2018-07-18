@@ -15,7 +15,7 @@
 
 ## 第一週
 
-第一周作業(https://bearhugdao.github.io/CSX_RProject_summer_2018/week1/Rarkdown2.html)
+[第一周作業](https://bearhugdao.github.io/CSX_RProject_summer_2018/week1/Rarkdown2.html)
 
 學了github
 
