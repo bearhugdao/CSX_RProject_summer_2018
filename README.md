@@ -31,6 +31,12 @@
 
 [textMining](https://bearhugdao.github.io/CSX_RProject_summer_2018/week2/textMining.html)
 
+## 第三週
+
+EDA
+探索式資料分析（Exploratory Data Analysis，簡稱 EDA），就是運用視覺化、基本的統計等工具，來「看」一下資料，讓我們在進行複雜或嚴謹的分析之前，能夠對資料有更多的認識。
+
+Text Mining
 
 
 
