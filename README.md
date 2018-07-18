@@ -15,6 +15,7 @@
 
 ## 第一週
 
+第一周作業(https://bearhugdao.github.io/CSX_RProject_summer_2018/week1/Rarkdown2.html)
 
 學了github
 
@@ -23,6 +24,15 @@
 下午要學R語言
 
 [中午想一想要吃甚麼](https://cw1.tw/CH/images/content_images/705ed175-512c-4daf-b93d-41a1fc8ca783.jpg)
+
+## 第二週
+
+[Data_Visualization](https://bearhugdao.github.io/CSX_RProject_summer_2018/week2/Data_Visualization.html)
+
+[textMining](https://bearhugdao.github.io/CSX_RProject_summer_2018/week2/textMining.html)
+
+
+
 
 ---
 
