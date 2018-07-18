@@ -33,8 +33,23 @@
 
 ## 第三週
 
-EDA
+EDA探索式資料分析
 探索式資料分析（Exploratory Data Analysis，簡稱 EDA），就是運用視覺化、基本的統計等工具，來「看」一下資料，讓我們在進行複雜或嚴謹的分析之前，能夠對資料有更多的認識。
+
+只處理描述統計,不處理推論
+
+|目標  | Data Driven-反覆找出重要資訊 |
+| ------------- | -----:|
+| 維度 |包含x,y,z,顏色,大小,形狀,時間7 dimensions|
+|策略| 確認已知欄位,製造整合新欄位    |
+|工具| 不使用任何model,並運用data visualization |
+|[EDA簡介影片](https://youtu.be/NEvuulahg2g)|
+
+範例:鐵達尼號
+
+小細節連結斟酌閱讀
+
+作業3-1
 
 Text Mining
 
