@@ -39,13 +39,12 @@ EDA探索式資料分析
 只處理描述統計,不處理推論
 
 |目標  | Data Driven-反覆找出重要資訊 |
-| ------------- | -----:|
-| 維度 |包含x,y,z,顏色,大小,形狀,時間7 dimensions|
-|策略| 確認已知欄位,製造整合新欄位    |
-|工具| 不使用任何model,並運用data visualization |
-|[EDA簡介影片](https://youtu.be/NEvuulahg2g)|
-
-範例:鐵達尼號
+| ------------- | -----|
+|**維度** |包含x,y,z,顏色,大小,形狀,時間7 dimensions|
+|**策略**| 確認已知欄位,製造整合新欄位    |
+|**工具**| 不使用任何model,並運用data visualization |
+|**簡介**|[EDA簡介影片](https://youtu.be/NEvuulahg2g)|
+|**範例**|鐵達尼號|
 
 小細節連結斟酌閱讀
 
