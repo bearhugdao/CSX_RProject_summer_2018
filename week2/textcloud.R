@@ -1,9 +1,9 @@
 source('pttTestFunction.R')
 
-#https://www.ptt.cc/bbs/WorldCup/index.html
+#https://www.ptt.cc/bbs/marriage/index.html
 
-id = c(1333:1334)
-URL = paste0("https://www.ptt.cc/bbs/WorldCup/index", id, ".html")
+id = c(1950:2000)
+URL = paste0("https://www.ptt.cc/bbs/marriage/index", id, ".html")
 
 filename = paste0(id, ".txt")
 pttTestFunction(URL[1], filename[1])
@@ -37,6 +37,13 @@ docs <- tm_map(docs, toSpace, "看板")
 docs <- tm_map(docs, toSpace, "作者")
 docs <- tm_map(docs, toSpace, "發信站")
 docs <- tm_map(docs, toSpace, "批踢踢實業坊")
+docs <- tm_map(docs, toSpace, "就")
+docs <- tm_map(docs, toSpace, "了")
+docs <- tm_map(docs, toSpace, "你")
+docs <- tm_map(docs, toSpace, "不")
+docs <- tm_map(docs, toSpace, "有")
+docs <- tm_map(docs, toSpace, "也")
+docs <- tm_map(docs, toSpace, "噓")
 docs <- tm_map(docs, toSpace, "[a-zA-Z]")
 #移除標點符號 (punctuation)
 #移除數字 (digits)、空白 (white space)

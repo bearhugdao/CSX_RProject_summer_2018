@@ -1,0 +1,24 @@
+---
+title: "Finding the ¡¥real¡¦ families on the Titanic, and majority vote ensemble"
+author: "dao"
+date: "2018¦~7¤ë18¤é"
+output: html_document
+---
+
+
+#Data From 
+[Titanic: 2nd degree families and majority voting] (https://www.kaggle.com/erikbruin/titanic-2nd-degree-families-and-majority-voting/data)
+
+
+
+
+```{r}
+test <- read.csv("../DATA/test.csv", stringsAsFactors = F, na.strings = c("NA", ""))
+```
+
+```{r}
+Names = TestData$Name
+splittitle<-function(x){strsplit(x,split='[,.]')[[1][1]}
+
+testdata$Surname<-sapply(name,splittitle)  
+```
