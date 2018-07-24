@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
 author: "dao"
-date: "2018¦~7¤ë18¤é"
+date: "2018å¹´7æœˆ18æ—¥"
 output: html_document
 ---
 
@@ -25,36 +25,36 @@ library('mice') # imputation
 ```
 
 ```{r}
-#Åª¨útest»Ptrain¨âµ§¸ê®Æ
+#è®€å–testèˆ‡trainå…©ç­†è³‡æ–™
 test <- read.csv("DATA/test.csv", stringsAsFactors = F, na.strings = c("NA", ""))
 train <- read.csv("DATA/train.csv", stringsAsFactors = F, na.strings = c("NA", ""))
 ```
 
 ```{r}
-#show¥Xtest¸ê®Æ
+#showå‡ºtestè³‡æ–™
 str(test)
 #418 obs. of  11 variables
 ```
 
 ```{r}
-#show¥Xtrain¸ê®Æ
+#showå‡ºtrainè³‡æ–™
 str(train)
 #891 obs. of  12 variables
 ```
 ```{r}
-#¦X¨Ö¨âµ§¸ê®Æ
+#åˆä½µå…©ç­†è³‡æ–™
 test$Survived <- NA
 allpeople <- rbind(train, test)
 str(allpeople)
 ```
 ```{r}
-#¬İ¤@¤U­ì©lªí®æ
+#çœ‹ä¸€ä¸‹åŸå§‹è¡¨æ ¼
 class(allpeople)
 View(allpeople)
 ```
 
 ```{r}
-#´y­z²Î­pªí³æ
+#æè¿°çµ±è¨ˆè¡¨å–®
 sapply(allpeople, function(x) {sum(is.na(x))})
 ```
 ```{r}
@@ -69,42 +69,42 @@ splitTitle <- function(x){
   strsplit(x, split='[,.]')[[1]]
 }
 Temp = sapply(as.character(Names), splitTitle)
-#¾ã²z¸ê®Æ¦¨²Î¤@®æ¦¡
+#æ•´ç†è³‡æ–™æˆçµ±ä¸€æ ¼å¼
 allpeople$Title[allpeople$Title=="Mlle"] <- "Miss"
 allpeople$Title[allpeople$Title=="Ms"] <- "Miss"
-#¤]¥i¥Îallpeople$Title[all$Title %in% c("Mlle", "Ms")] <- "Miss"
+#ä¹Ÿå¯ç”¨allpeople$Title[all$Title %in% c("Mlle", "Ms")] <- "Miss"
 allpeople$Title[allpeople$Title=="Mme"] <- "Mrs"
-#¾ã²z¤Ö¼ÆºÙ©I¦¨¤Ö¼ÆºÙ¿×
+#æ•´ç†å°‘æ•¸ç¨±å‘¼æˆå°‘æ•¸ç¨±è¬‚
 allpeople$Title[!(allpeople$Title %in% c('Master', 'Miss', 'Mr', 'Mrs'))] <- "Rare Title"
-#¤]¥i¥Î rare_titles <- c("Don","Rev","Major","Lady","Sir","Capt","Col","Jonkheer","the Countess")
+#ä¹Ÿå¯ç”¨ rare_titles <- c("Don","Rev","Major","Lady","Sir","Capt","Col","Jonkheer","the Countess")
 #allpeople$Title[match(rare_titles,train_file_titanic$Title)] <- "Rare Title"
 View(allpeople)
 
 ```
 ```{r}
-#²Î­p©Ê§O¸òTitleÃö«Y
+#çµ±è¨ˆæ€§åˆ¥è·ŸTitleé—œä¿‚
 kable(table(allpeople$Sex, allpeople$Title))
-#¤k©Ê¦³265¤H¬°Miss,198¤H¬°Mrs,3¤H¬°¤Ö¼ÆºÙ¿×
-#¨k©Ê¦³61¬°Master,758¬°Mr,24¬°¤Ö¼ÆºÙ¿×
+#å¥³æ€§æœ‰265äººç‚ºMiss,198äººç‚ºMrs,3äººç‚ºå°‘æ•¸ç¨±è¬‚
+#ç”·æ€§æœ‰61ç‚ºMaster,758ç‚ºMr,24ç‚ºå°‘æ•¸ç¨±è¬‚
 ```
 ```{r}
 ggplot(allpeople[!is.na(allpeople$Survived),], aes(x = Survived, fill = Survived)) +
   geom_bar(stat='count') +
-  labs(x = '¦h¤Ö¤H¬¡¤F¤U¨Ó?') +
+  labs(x = 'å¤šå°‘äººæ´»äº†ä¸‹ä¾†?') +
         geom_label(stat='count',aes(label=..count..), size=7) +
         theme_grey(base_size = 18)
 ```
 ```{r}
 ggplot(allpeople[!is.na(allpeople$Sex),], aes(x = Sex, fill = Sex)) +
   geom_bar(stat='count') +
-  labs(x = '¨k¤k¤ñ¨Ò?') +
+  labs(x = 'ç”·å¥³æ¯”ä¾‹?') +
         geom_label(stat='count',aes(label=..count..), size=7) +
         theme_grey(base_size = 18)
 ```
 ```{r}
 ggplot(allpeople, aes(x = Sex, fill = Sex)) +
   geom_bar(stat='count', position='dodge') + theme_grey() +
-  labs(x = '¨k¤k¤ñ¨Ò') +
+  labs(x = 'ç”·å¥³æ¯”ä¾‹') +
         geom_label(stat='count', aes(label=..count..), size=7) +
         theme_grey(base_size = 18) +
         scale_fill_manual("legend", values = c("female" = "lightpink", "male" = "dodgerblue"))
@@ -113,7 +113,7 @@ ggplot(allpeople, aes(x = Sex, fill = Sex)) +
 ```{r}
 ggplot(allpeople[!is.na(allpeople$Survived),], aes(x = Sex, fill = Survived)) +
   geom_bar(stat='count', position='dodge') + theme_grey() +
-  labs(x = '¦º¤H¨k¤k¤ñ') +
+  labs(x = 'æ­»äººç”·å¥³æ¯”') +
         geom_label(stat='count', aes(label=..count..))
 ```
 
