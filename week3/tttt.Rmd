@@ -1,0 +1,124 @@
+---
+title: "Untitled"
+author: "dao"
+date: "2018年7月18日"
+output: html_document
+---
+
+#Data From 
+[Titanic: 2nd degree families and majority voting] (https://www.kaggle.com/erikbruin/titanic-2nd-degree-families-and-majority-voting/data)
+
+```{r}
+library(Hmisc)
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(caret)
+library(randomForest)
+library(gridExtra)
+library(ROCR)
+library(corrplot)
+library('ggthemes') # visualization
+library('scales') # visualization
+library('dplyr') # data manipulation
+library('mice') # imputation
+```
+
+```{r}
+#讀取test與train兩筆資料
+test <- read.csv("DATA/test.csv", stringsAsFactors = F, na.strings = c("NA", ""))
+train <- read.csv("DATA/train.csv", stringsAsFactors = F, na.strings = c("NA", ""))
+```
+
+```{r}
+#show出test資料
+str(test)
+#418 obs. of  11 variables
+```
+
+```{r}
+#show出train資料
+str(train)
+#891 obs. of  12 variables
+```
+```{r}
+#合併兩筆資料
+test$Survived <- NA
+allpeople <- rbind(train, test)
+str(allpeople)
+```
+```{r}
+#看一下原始表格
+class(allpeople)
+View(allpeople)
+```
+
+```{r}
+#描述統計表單
+sapply(allpeople, function(x) {sum(is.na(x))})
+```
+```{r}
+allpeople$Title <- gsub('(.*, )|(\\..*)','',allpeople$Name)
+View(allpeople)
+```
+
+
+```{r}
+Names = allpeople$Name
+splitTitle <- function(x){
+  strsplit(x, split='[,.]')[[1]]
+}
+Temp = sapply(as.character(Names), splitTitle)
+#整理資料成統一格式
+allpeople$Title[allpeople$Title=="Mlle"] <- "Miss"
+allpeople$Title[allpeople$Title=="Ms"] <- "Miss"
+#也可用allpeople$Title[all$Title %in% c("Mlle", "Ms")] <- "Miss"
+allpeople$Title[allpeople$Title=="Mme"] <- "Mrs"
+#整理少數稱呼成少數稱謂
+allpeople$Title[!(allpeople$Title %in% c('Master', 'Miss', 'Mr', 'Mrs'))] <- "Rare Title"
+#也可用 rare_titles <- c("Don","Rev","Major","Lady","Sir","Capt","Col","Jonkheer","the Countess")
+#allpeople$Title[match(rare_titles,train_file_titanic$Title)] <- "Rare Title"
+View(allpeople)
+
+```
+```{r}
+#統計性別跟Title關係
+kable(table(allpeople$Sex, allpeople$Title))
+#女性有265人為Miss,198人為Mrs,3人為少數稱謂
+#男性有61為Master,758為Mr,24為少數稱謂
+```
+```{r}
+ggplot(allpeople[!is.na(allpeople$Survived),], aes(x = Survived, fill = Survived)) +
+  geom_bar(stat='count') +
+  labs(x = '多少人活了下來?') +
+        geom_label(stat='count',aes(label=..count..), size=7) +
+        theme_grey(base_size = 18)
+```
+```{r}
+ggplot(allpeople[!is.na(allpeople$Sex),], aes(x = Sex, fill = Sex)) +
+  geom_bar(stat='count') +
+  labs(x = '男女比例?') +
+        geom_label(stat='count',aes(label=..count..), size=7) +
+        theme_grey(base_size = 18)
+```
+```{r}
+ggplot(allpeople, aes(x = Sex, fill = Sex)) +
+  geom_bar(stat='count', position='dodge') + theme_grey() +
+  labs(x = '男女比例') +
+        geom_label(stat='count', aes(label=..count..), size=7) +
+        theme_grey(base_size = 18) +
+        scale_fill_manual("legend", values = c("female" = "lightpink", "male" = "dodgerblue"))
+```
+
+```{r}
+ggplot(allpeople[!is.na(allpeople$Survived),], aes(x = Sex, fill = Survived)) +
+  geom_bar(stat='count', position='dodge') + theme_grey() +
+  labs(x = '死人男女比') +
+        geom_label(stat='count', aes(label=..count..))
+```
+
+
+```{r}
+allpeople$Surname <- Temp[1,]
+allpeople$Title <- Temp[2,]
+```
