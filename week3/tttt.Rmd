@@ -1,10 +1,9 @@
 ---
-title: "Untitled"
+title: "ttttt"
 author: "dao"
-date: "2018年7月18日"
+date: "2018年7月25日"
 output: html_document
 ---
-
 #Data From 
 [Titanic: 2nd degree families and majority voting] (https://www.kaggle.com/erikbruin/titanic-2nd-degree-families-and-majority-voting/data)
 
@@ -26,8 +25,8 @@ library('mice') # imputation
 
 ```{r}
 #讀取test與train兩筆資料
-test <- read.csv("DATA/test.csv", stringsAsFactors = F, na.strings = c("NA", ""))
-train <- read.csv("DATA/train.csv", stringsAsFactors = F, na.strings = c("NA", ""))
+test <- read.csv("DATA2/test.csv", stringsAsFactors = F, na.strings = c("NA", ""))
+train <- read.csv("DATA2/train.csv", stringsAsFactors = F, na.strings = c("NA", ""))
 ```
 
 ```{r}
