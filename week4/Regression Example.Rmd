@@ -27,6 +27,21 @@ summary(dta)
 ```{r}
 require(ggplot2)
 ```
+```{r}
+library("Hmisc")
+
+```
+
+
+```{r}
+data("dta")
+my_data <- dta[, c(10,11,12,13,14,15,10,11,12,13,14,15,28,31,34,37,39,40,43,44,49,52,53,59,60,62)]
+res <- cor(my_data)
+round(res, 2)
+View(res)
+```
+
+
 
 ```{r}
 old <- theme_set(theme_bw())
@@ -120,8 +135,8 @@ t.test(退學人數小計 ~ 學校類別, data = dta)
 ```{r}
 t.test(學期內新辦理休學人數小計 ~ 學校類別, data = dta)
 ```
-
-#106年度一般大學學生比技專校院學生更容易休學，但在退學情況上並無顯著差異
+#105年度私立大學學生公立大學學生更容易被退學，但在休學情況上並無顯著差異
+#105年度一般大學學生比技專校院學生更容易休學，但在退學情況上並無顯著差異
 
 ```{r}
 library(Hmisc)
@@ -129,10 +144,100 @@ library(Hmisc)
 ```
 
 ```{r}
-dta$設立別 <- factor(dta$設立別, 
-                       levels = c('私立',
-                                  '公立'))
-tapply(dta$退學人數小計, dta$設立別, mean)
+dta$學制班別 <- factor(dta$學制班別, 
+                       levels = c(
+                                  '二專(日間)',
+                                  '五專',
+                                  '學士班(日間)'))
+```
+```{r}
+tapply(dta$學期內新辦理休學人數小計, dta$學制班別, mean)
+```
 
+```{r}
+ggplot(data = dta, 
+       aes(x = 學制班別, y = 學期內新辦理休學人數小計)) +
+  stat_summary(fun.data = 'mean_cl_boot', size = 1) +
+  scale_y_continuous(breaks = seq(500, 660, by = 20)) +
+  geom_hline(yintercept = mean(dta$math) , 
+             linetype = 'dotted') +
+  labs(x = '學制班別', y = '休學人數') +
+  coord_flip()
+```
+```{r}
+ggplot(data = dta, 
+       aes(group = 學制班別, 
+          y = 因志趣不合退學人數, x = 教師總數)) +
+  geom_point() +
+  stat_smooth(method = 'lm', se = F) +
+  stat_smooth(aes(group = 學制班別, 
+          y = 因志趣不合退學人數, x = 教師總數), 
+          method = 'lm', se = F) + 
+  facet_grid( . ~  學制班別) +
+  labs(x = '教師總數', y = '因志趣不合退學人數')
+
+```
+
+```{r}
+ggplot(data = dta, 
+       aes(group = 設立別, 
+          y = 因志趣不合退學人數, x = 教師總數)) +
+  geom_point() +
+  stat_smooth(method = 'lm', se = F) +
+  stat_smooth(aes(group = 設立別, 
+          y = 因志趣不合退學人數, x = 教師總數), 
+          method = 'lm', se = F) + 
+  facet_grid( . ~  設立別) +
+  labs(x = '教師總數', y = '因志趣不合退學人數')
+
+```
+
+```{r}
+ggplot(data = dta, 
+       aes(group = 學制班別, 
+          y = 因志趣不合退學人數, x = 專任教授平均每週授課時數)) +
+  geom_point() +
+  stat_smooth(method = 'lm', se = F) +
+  stat_smooth(aes(group = 學制班別, 
+          y = 因志趣不合退學人數, x = 專任教授平均每週授課時數), 
+          method = 'lm', se = F) + 
+  facet_grid( . ~  學制班別) +
+  labs(x = '專任教授平均每週授課時數', y = '因志趣不合退學人數')
+
+```
+
+```{r}
+ggplot(data = dta, 
+       aes(group = 設立別, 
+          y = 因志趣不合退學人數, x = 專任教授平均每週授課時數)) +
+  geom_point() +
+  stat_smooth(method = 'lm', se = F) +
+  stat_smooth(aes(group = 設立別, 
+          y = 因志趣不合退學人數, x = 專任教授平均每週授課時數), 
+          method = 'lm', se = F) + 
+  facet_grid( . ~  設立別) +
+  labs(x = '專任教授平均每週授課時數', y = '因志趣不合退學人數')
+```
+
+```{r}
+require(coefplot)
+m2 <- lm(因志趣不合退學人數 ~ 設立別+學制班別- 1, 
+         data = dta)
+coefplot(m2, xlab = '估計值', ylab = '迴歸變項', title = '反應變項 = 因志趣不合退學人數')
+```
+
+```{r}
+fit_m2 <- data.frame(dta[, c(9, 62)], fitted = fitted(m2), resid = resid(m2),
+                     infl = influence(m2)$hat )
+```
+
+
+```{r}
+ggplot(data = fit_m2, aes(x = scale(resid)), group = 設立別 ) +
+ stat_density(geom = 'path', position = 'identity', aes(linetype =設立別)) +
+ scale_linetype_manual(values = 5:1) +
+ guides(linetype = guide_legend(reverse = TRUE)) +
+ labs(x = '標準化殘差', y = '機率密度') +
+ theme(legend.position = c(.15, .8))
 ```
 
