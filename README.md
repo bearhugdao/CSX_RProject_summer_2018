@@ -50,7 +50,7 @@ EDA探索式資料分析
 
 作業3-1
 
-[Titanic](https://bearhugdao.github.io/CSX_RProject_summer_2018/week3/EDA.html)
+[Titanic](https://bearhugdao.github.io/CSX_RProject_summer_2018/week3/1234.html)
 
 [textMining-老師範例](https://bearhugdao.github.io/CSX_RProject_summer_2018/week3/PTTBoyGirl.html)
 
