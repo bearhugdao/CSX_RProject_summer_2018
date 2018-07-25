@@ -1,0 +1,138 @@
+---
+title: "week5"
+author: "dao"
+date: "2018年7月25日"
+output: html_document
+---
+
+
+```{r}
+dta <- read.csv(file = "總資料串連查詢.csv", fileEncoding = "big5")
+```
+
+```{r}
+str(dta)
+
+```
+
+```{r}
+head(dta)
+
+```
+
+```{r}
+summary(dta)
+
+```
+```{r}
+require(ggplot2)
+```
+
+```{r}
+old <- theme_set(theme_bw())
+
+```
+
+```{r}
+ggplot(data = dta, aes(x = 學制班別, y = 教師總數)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '教師總數', x = '學制班別(日間)', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 學制班別, y = 專任助理教授以上總人數)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '專任助理教授以上總人數', x = '學制班別(日間)', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 設立別, y = 教師總數)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '教師總數', x = '設立別', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 設立別, y = 退學人數小計)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '退學人數小計', x = '設立別', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 學制班別, y = 退學人數小計)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '退學人數小計', x = '學制班別', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 學校類別, y = 退學人數小計)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '教師總數', x = '學校類別', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+ggplot(data = dta, aes(x = 學校類別, y = 學期內新辦理休學人數小計)) +
+ geom_boxplot() + coord_flip() +
+ labs( y = '教師總數', x = '學校類別', 
+       title = '學制對教師數的影響')
+```
+
+```{r}
+with(dta, 
+     tapply(教師總數, 學制班別,
+     function(x) 
+       c(mean(x) + c(-2, 2) * sd(x)/sqrt(length(x)))))
+```
+
+```{r}
+with(dta, 
+     tapply(教師總數, 設立別,
+     function(x) 
+       c(mean(x) + c(-2, 2) * sd(x)/sqrt(length(x)))))
+```
+
+
+```{r}
+t.test(教師總數 ~ 設立別, data = dta)
+```
+
+```{r}
+t.test(專任教授平均每週授課時數 ~ 設立別, data = dta)
+```
+
+```{r}
+t.test(退學人數小計 ~ 設立別, data = dta)
+```
+
+```{r}
+t.test(學期內新辦理休學人數小計 ~ 設立別, data = dta)
+```
+
+```{r}
+t.test(退學人數小計 ~ 學校類別, data = dta)
+```
+
+```{r}
+t.test(學期內新辦理休學人數小計 ~ 學校類別, data = dta)
+```
+
+#106年度一般大學學生比技專校院學生更容易休學，但在退學情況上並無顯著差異
+
+```{r}
+library(Hmisc)
+
+```
+
+```{r}
+dta$設立別 <- factor(dta$設立別, 
+                       levels = c('私立',
+                                  '公立'))
+tapply(dta$退學人數小計, dta$設立別, mean)
+
+```
+
