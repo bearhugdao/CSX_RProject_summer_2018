@@ -58,6 +58,9 @@ EDA探索式資料分析
 
 [textMining](https://bearhugdao.github.io/CSX_RProject_summer_2018/week3/tfidf/tfidf.html)
 
+第四周
+作業4-1
+[回歸分析](https://bearhugdao.github.io/CSX_RProject_summer_2018/week4/Regression_Example.html)
 
 ---
 
