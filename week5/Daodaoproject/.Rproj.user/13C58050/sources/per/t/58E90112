@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533102408636.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1846567873",
+    "id" : "58E90112",
+    "lastKnownWriteTime" : 1533105357,
+    "last_content_update" : 1533105357569,
+    "path" : "~/GitHub/CSX_RProject_summer_2018/week5/Daodaoproject/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "2,9",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

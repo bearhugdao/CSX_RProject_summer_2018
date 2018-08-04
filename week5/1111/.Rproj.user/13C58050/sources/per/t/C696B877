@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533106111737.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "748169753",
+    "id" : "C696B877",
+    "lastKnownWriteTime" : 1533111241,
+    "last_content_update" : 1533111241325,
+    "path" : "~/GitHub/CSX_RProject_summer_2018/week5/1111/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "121,0",
+        "scrollLine" : "89"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
