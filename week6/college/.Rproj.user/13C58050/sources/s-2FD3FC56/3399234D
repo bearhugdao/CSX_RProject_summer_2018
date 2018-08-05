@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1313241921",
+    "hash" : "483702429",
     "id" : "3399234D",
-    "lastKnownWriteTime" : 1533452030,
-    "last_content_update" : 1533452030403,
+    "lastKnownWriteTime" : 1533469682,
+    "last_content_update" : 1533469682744,
     "path" : "~/GitHub/CSX_RProject_summer_2018/week6/college/app.R",
     "project_path" : "app.R",
     "properties" : {
-        "cursorPosition" : "37,2",
-        "scrollLine" : "23"
+        "cursorPosition" : "125,31",
+        "scrollLine" : "105"
     },
     "relative_order" : 1,
     "source_on_save" : false,

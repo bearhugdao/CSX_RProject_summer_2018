@@ -1,13 +1,8 @@
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 library(rsconnect)
 library(shiny)
 library(ggplot2)
+library(datasets)
 
 dta <- read.csv("data/college.csv", header = TRUE)
 choice.type <-
@@ -111,11 +106,48 @@ ui <- navbarPage(
         
       )
     )),
+ 
+  navbarPage("Navbar!",
+             tabPanel("Plot",
+                      sidebarLayout(
+                        sidebarPanel(
+                          radioButtons("plotType", "Plot type",
+                                       c("Scatter"="p", "Line"="l")
+                          )
+                        ),
+                        mainPanel(
+                          plotOutput("plot")
+                        )
+                      )
+             ),
+             tabPanel("Summary",
+                      verbatimTextOutput("summary")
+             ),
+             navbarMenu("More",
+               titlePanel("18學群差異"),
+               
+               # Generate a row with a sidebar
+               sidebarLayout(      
+                 
+                 # Define the sidebar with one input
+                 sidebarPanel(
+                   selectInput("學校類型", "學校類型:", 
+                               choices=colnames(WorldPhones)),
+                   hr(),
+                   helpText("大考中心18學群")
+                 ),
+                 
+                 # Create a spot for the barplot
+                 mainPanel(
+                   plotOutput("三年後就業薪資_100學年日間學士")  
+                 )
+                 
+               ))
+                         
+   
   
   
-  navbarMenu("More",
-             plotOutput("plot"))
-)
+  )
 
 server <- function(input, output, session) {
   output$SV.plot <- renderPlot({
@@ -172,7 +204,16 @@ server <- function(input, output, session) {
     # draw the histogram with the specified number of bins
     hist(延畢人數, breaks = 學類編號, col = 'darkgray', border = 'white')
   })
-  
+
+  output$phonePlot <- renderPlot({
+    
+    # Render a barplot
+    barplot(WorldPhones[,input$region]*1000, 
+            main=input$region,
+            ylab="三年後就業薪資_100學年日間學士",
+            xlab="學類所屬學群名稱")
+  })
+    
 }
 
 
