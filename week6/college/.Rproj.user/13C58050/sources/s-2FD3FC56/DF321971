@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533451926446.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "919593071",
+    "id" : "DF321971",
+    "lastKnownWriteTime" : 1533451993,
+    "last_content_update" : 1533451993875,
+    "path" : "~/GitHub/CSX_RProject_summer_2018/week6/ui.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "29,0",
+        "scrollLine" : "9"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
