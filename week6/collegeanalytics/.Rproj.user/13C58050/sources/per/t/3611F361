@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533643763878.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4263726672",
+    "id" : "3611F361",
+    "lastKnownWriteTime" : 1533711339,
+    "last_content_update" : 1533711339139,
+    "path" : "~/GitHub/CSX_RProject_summer_2018/week6/collegenew2/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "349,1",
+        "scrollLine" : "329"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

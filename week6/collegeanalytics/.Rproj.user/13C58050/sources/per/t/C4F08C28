@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533707823608.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1856131167",
+    "id" : "C4F08C28",
+    "lastKnownWriteTime" : 1428544938,
+    "last_content_update" : 1428544938,
+    "path" : "C:/Users/YANGTAOYUAN/Desktop/college_explorer-master/server.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "215,0",
+        "scrollLine" : "196"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
