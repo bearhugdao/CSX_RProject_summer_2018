@@ -15,7 +15,7 @@ shinyUI(navbarPage("college choice",
   sidebarLayout(
     sidebarPanel(
       selectInput("dataset", "college", 
-                  c("collegetype")),
+                  c("interest")),
       conditionalPanel("input.dataset === 'collegedata'",
                        fileInput("datafile", ""), 
                        textInput("datafile_sep", "Field Seperator", value = ",")),

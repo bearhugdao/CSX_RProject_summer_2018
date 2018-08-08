@@ -5,9 +5,9 @@ account: bearhugdao
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 394861
-bundleId: 1524058
+bundleId: 1524158
 url: https://bearhugdao.shinyapps.io/college/
-when: 1533698823.12318
+when: 1533704681.11843
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: .RData|變項對照.xlsx
