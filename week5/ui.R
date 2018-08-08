@@ -3,19 +3,30 @@ library(ggplot2)
 
 library(markdown)
 
+
 choice.type <-
-    c('gender', 'math.hours', 'science.hours', 'parental.education')
+  c('types', 
+    'Set', 
+    'Schoolgroupname', 
+    'Schoolgroupnameandnumber', 
+    'Countyname', 
+    'System',
+    'ProfessionalHollandcodefirstcode'
+  )
 choice.value <-
-    c(
-        'math',
-        'math.interest',
-        'science.evaluation',
-        'math.input',
-        'science',
-        'science.interest',
-        'science.evaluation',
-        'science.input'
-    )
+  c(
+    'Teacherstudentratio',
+    'Numberofstudents',
+    'Numberofdelaypeople',
+    'Decliningrate',
+    'Delayrate',
+    'Hitrate',
+    'TotalSuspensionrate',
+    'Dropoutrate',
+    'Afterthreeyearsofemploymentsalary_100schoolyearbachelor',
+    'Afterthreeyearsofemploymentrate_100academicyearbachelor'
+  )
+
 
 navbarPage(
     "Shiny Example",

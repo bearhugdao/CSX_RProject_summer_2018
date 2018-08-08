@@ -1,22 +1,33 @@
 library(shiny)
 library(ggplot2)
 
-dta <- read.table(file = "data/TIMSS2011TW.txt",
+dta <- read.csv(file = "data/college4.csv",
                   header = TRUE)
 
+
 choice.type <-
-    c('gender', 'math.hours', 'science.hours', 'parental.education')
+  c('types', 
+    'Set', 
+    'Schoolgroupname', 
+    'Schoolgroupnameandnumber', 
+    'Countyname', 
+    'System',
+    'ProfessionalHollandcodefirstcode'
+  )
 choice.value <-
-    c(
-        'math',
-        'math.interest',
-        'science.evaluation',
-        'math.input',
-        'science',
-        'science.interest',
-        'science.evaluation',
-        'science.input'
-    )
+  c(
+    'Teacherstudentratio',
+    'Numberofstudents',
+    'Numberofdelaypeople',
+    'Decliningrate',
+    'Delayrate',
+    'Hitrate',
+    'TotalSuspensionrate',
+    'Dropoutrate',
+    'Afterthreeyearsofemploymentsalary_100schoolyearbachelor',
+    'Afterthreeyearsofemploymentrate_100academicyearbachelor'
+  )
+
 
 function(input, output, session) {
     output$SV.plot <- renderPlot({

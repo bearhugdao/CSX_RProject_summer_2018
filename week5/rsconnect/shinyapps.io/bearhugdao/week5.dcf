@@ -1,0 +1,13 @@
+name: week5
+title:
+username:
+account: bearhugdao
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 393030
+bundleId: 1519329
+url: https://bearhugdao.shinyapps.io/week5/
+when: 1533491484.45008
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|shiny_example.R|week5.R|data/AQXDaily_20170409211519.csv|data/newTable.RData|data/teacher.csv|data/TIMSS2011TW.txt|1111|Daodaoproject
